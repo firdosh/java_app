@@ -17,5 +17,10 @@ pipeline {
                 echo 'Hello Prod'
             }
         }
+        post{
+            always {
+                echo "Build Completed"
+            }
+        }
     }
 }
