@@ -19,7 +19,7 @@ pipeline {
         }
         post {
     success {
-      mail to: homavazir@xtra.co.nz, subject: ‘The Pipeline success :(‘
+      mail to: homavazir@xtra.co.nz, subject: 'The Pipeline success'
     }
     }
 } 
