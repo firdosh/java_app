@@ -22,4 +22,5 @@ pipeline {
       mail to: homavazir@xtra.co.nz, subject: ‘The Pipeline success :(‘
     }
     }
+} 
 }
