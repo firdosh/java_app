@@ -7,14 +7,14 @@ pipeline {
                 echo 'building the app'
 
             }
-        stages {
-        stage("test") {
+        
+       stage("test") {
             steps {
 
                 echo 'testing  the app'
             }
-        stages {
-        stage("deploy") {
+        
+       stage("deploy") {
             steps {
                 echo 'Deploying the app'
 
