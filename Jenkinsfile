@@ -17,10 +17,6 @@ pipeline {
                 echo 'Hello Prod'
             }
         }
-        post {
-    success {
-      mail to: homavazir@xtra.co.nz, subject: 'The Pipeline success'
-    }
-    }
-} 
+        
+     } 
 }
