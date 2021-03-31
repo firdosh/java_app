@@ -1,24 +1,42 @@
 pipeline {
-    agent any
-    environment {
-        NEW_VERSION = '1.3.4.5'
+    agent {
+        docker {
+            image 'node:6-alpine'
+            args '-p 3000:3000 -p 5000:5000'
+        }
     }
-
+    environment {
+        CI = 'true'
+    }
     stages {
-        stage('test') {
+        stage('Build') {
             steps {
-                echo 'Hello test'
-                echo "building version ${NEW_VERSION}"
+                sh 'npm install'
             }
         }
-       stage('UAT') {
+        stage('Test') {
             steps {
-                echo 'Hello UAT'
+                sh './jenkins/scripts/test.sh'
             }
         }
-        stage('Prod') {
+        stage('Deliver for development') {
+            when {
+                branch 'development'
+            }
             steps {
-                echo 'Hello Prod You Are Done !!!'
+                sh './jenkins/scripts/deliver-for-development.sh'
+                input message: 'Finished using the web site? (Click "Proceed" to continue)'
+                sh './jenkins/scripts/kill.sh'
+            }
+        }
+        stage('Deploy for production') {
+            when {
+                branch 'production'
+            }
+            steps {
+                sh './jenkins/scripts/deploy-for-production.sh'
+                input message: 'Finished using the web site? (Click "Proceed" to continue)'
+                sh './jenkins/scripts/kill.sh'
             }
         }
     }
