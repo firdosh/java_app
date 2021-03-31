@@ -1,6 +1,5 @@
 def setupVirtualEnv() {
-    sh './setup.sh'
-    sh '. ${VENV}/bin/activate && pylint --version'
+    sh echo 'What A beautiful World'
     sh 'printenv'
 }
 pipeline {
