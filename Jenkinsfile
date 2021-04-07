@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    parameters {
+        string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
+    }
     environment {
         NEW_VERSION = '1.3.4.5'
     }
@@ -19,6 +22,7 @@ pipeline {
         stage('Prod') {
             steps {
                 echo 'Hello Prod You Are Done !!!'
+                sh('echo ${STATEMENT}')
             }
         }
     }
