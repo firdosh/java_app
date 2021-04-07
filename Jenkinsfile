@@ -22,7 +22,7 @@ pipeline {
         stage('Prod') {
             steps {
                 echo 'Hello Prod You Are Done !!!'
-                sh('echo ${STATEMENT}')
+                bat "echo ${EXAMPLE_KEY}"
             }
         }
     }
