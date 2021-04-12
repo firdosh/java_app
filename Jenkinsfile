@@ -24,6 +24,7 @@ pipeline {
                 stage('Unit Test') {
                                      steps { 
                                                 echo 'Running Unit Tests ....'
+                                     }
                  stage('Int Test') {
                      agent {  
                          docker {
@@ -49,5 +50,4 @@ pipeline {
             }
         }
     }
-}
-        }
+}      
