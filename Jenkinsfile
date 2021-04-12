@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'node:14-alpine' }
+        docker { image 'ubuntu' }
     }
     environment {
         NEW_VERSION = '1.3.4.5'
