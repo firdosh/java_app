@@ -1,10 +1,7 @@
 pipeline {
     agent {
-    docker {
-      image 'node:lts-buster-slim'
-      args '-p 8989:8989'
+        docker { image 'node:14-alpine' }
     }
-  }
     environment {
         NEW_VERSION = '1.3.4.5'
     }
