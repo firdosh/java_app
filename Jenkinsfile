@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'node:14-alpine' }
+        docker { image 'ubuntu' }
     }
     parameters {
         string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
