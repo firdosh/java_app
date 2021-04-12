@@ -20,6 +20,27 @@ pipeline {
             }
         }
         
+        stage('Uniit and Int Test') {
+            parallel {
+                stage('Unit Test') {
+                                     steps { 
+                                                echo 'Running Unit Tests ....'
+                                     }
+                 stage('Int Test') {
+                     agent {  
+                         docker {
+                                    reuseNode false
+                                    image 'ubuntu'
+                                }
+                            }
+                     steps {
+                         echo 'Running Int Tests ...'
+                     }
+        }
+     }
+    }
+    }
+        
         stage('Pause For Confirmation') {
             steps { 
                     input("Do You Want To Proceed To Prod ?")
