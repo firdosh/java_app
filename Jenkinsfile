@@ -19,6 +19,12 @@ pipeline {
                 echo 'Hello UAT'
             }
         }
+        stage('Pause For Confirmation') {
+            steps { 
+                    input("Do You Want To Proceed To Prod ?")
+                   
+            }
+        }
         stage('Prod') {
             steps {
                 echo 'Hello Prod You Are Done !!!'
