@@ -1,10 +1,10 @@
 pipeline {
     agent {
-        docker {
-            image 'maven:3-alpine'
-            args '-v $HOME/.m2:/root/.m2'
-        }
+    docker {
+      image 'node:lts-buster-slim'
+      args '-p 8989:8989'
     }
+  }
     environment {
         NEW_VERSION = '1.3.4.5'
     }
